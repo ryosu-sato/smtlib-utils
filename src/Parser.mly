@@ -405,6 +405,9 @@ composite_term:
   | LEFT_PAREN f=IDENT args=term+ RIGHT_PAREN {
     let loc = Loc.mk_pos $startpos $endpos in
     apply_const ~loc f args }
+  | LEFT_PAREN WILDCARD args=term+ RIGHT_PAREN {
+    let loc = Loc.mk_pos $startpos $endpos in
+    apply_const ~loc "_" args }
   | LEFT_PAREN LEFT_PAREN WILDCARD SIGN_EXTEND i=IDENT RIGHT_PAREN args=term+ RIGHT_PAREN {
     let loc = Loc.mk_pos $startpos $endpos in
     try (Ast.bitvec (Ast.Sign_extend (int_of_string i)) args) with _ -> 

@@ -3,7 +3,7 @@
 (generate_opam_files true)
 
 (name smtlib-utils)
-(version 0.5)
+(version 0.5-wildcard)
 
 (maintainers "simon.cruanes.2007@m4x.org")
 (authors "Simon Cruanes")
